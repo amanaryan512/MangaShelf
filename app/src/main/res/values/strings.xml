@@ -5,5 +5,10 @@
     <string name="manga_details">Manga Details</string>
     <string name="back">Back</string>
     <string name="category">Category : %s</string>
-    <string name="popularity">Download : %s</string>
+    <string name="popularity">Popularity : %s</string>
+    <string name="popularity_text">Popularity</string>
+    <string name="score">Score</string>
+    <string name="reset_filter">Reset Filter</string>
+    <string name="none">None</string>
+    <string name="sort_by">Sort by : %s</string>
 </resources>

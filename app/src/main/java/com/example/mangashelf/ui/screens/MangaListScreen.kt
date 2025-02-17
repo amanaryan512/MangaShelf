@@ -36,7 +36,7 @@ import kotlinx.coroutines.launch
 fun MangaListScreen(
     modifier: Modifier = Modifier,
     mangaListViewModel: MangaViewModel = hiltViewModel(),
-    onItemClick: (String) -> Unit
+    onItemClick: (String) -> Unit,
 ) {
     val lazyListState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
@@ -50,6 +50,8 @@ fun MangaListScreen(
     var tabs by remember {
         mutableStateOf(listOf<String>())
     }
+
+    val sortType by mangaListViewModel.sortType.collectAsStateWithLifecycle()
 
     // Call the Manga Shelf API on screen Launch.
     LaunchedEffect(key1 = Unit) {
@@ -114,7 +116,15 @@ fun MangaListScreen(
                             })
                     }
 
-                    MangaList(mangaList = mangaList, onItemClick = onItemClick, state = lazyListState) { id, isRead ->
+                    MangaList(
+                        mangaList = mangaList,
+                        onItemClick = onItemClick,
+                        sortType = sortType,
+                        onSortSelected = {
+                            mangaListViewModel.updateSortType(it)
+                        },
+                        state = lazyListState
+                    ) { id, isRead ->
                         mangaListViewModel.updateReadStatus(id, isRead)
                     }
                 }
