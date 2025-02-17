@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MangaShelf</string>
+    <string name="published_in">Published in %1$s</string>
+    <string name="error_while_navigating">Error while navigating</string>
+    <string name="manga_details">Manga Details</string>
+    <string name="back">Back</string>
+    <string name="category">Category : %s</string>
+    <string name="popularity">Download : %s</string>
+</resources>
